@@ -454,7 +454,7 @@ class JDWrapper(object):
         #   response: {"3180350":{"a":"34","b":"1","c":"-1"}}
         #stock_url = 'http://ss.jd.com/ss/areaStockState/mget' 
 
-        # http://c0.3.cn/stocks?callback=jQuery2289454&type=getstocks&skuIds=3133811&area=1_72_2799_0&_=1490694504044
+        # http://c0.3.cn/stocks?callback=jQuery2289454&type=getstocks&skuIds=3133811&area=1_2800_4209_0&_=1490694504044
         #   jQuery2289454({"3133811":{"StockState":33,"freshEdi":null,"skuState":1,"PopType":0,"sidDely":"40","channel":1,"StockStateName":"现货","rid":null,"rfg":0,"ArrivalDate":"","IsPurchase":true,"rn":-1}})
         # jsonp or json both work
         stock_url = 'https://c0.3.cn/stocks' 
@@ -462,7 +462,7 @@ class JDWrapper(object):
         payload = {
             'type' : 'getstocks',
             'skuIds' : str(stock_id),
-            'area' : area_id or '1_72_2799_0', # area change as needed
+            'area' : area_id or '1_2800_4209_0', # area change as needed
         }
         
         try:
@@ -771,7 +771,7 @@ if __name__ == '__main__':
     #parser.add_argument('-p', '--password', 
     #                    help='Jing Dong login user password', default='')
     parser.add_argument('-a', '--area', 
-                        help='Area string, like: 1_72_2799_0 for Beijing', default='1_72_2799_0')    
+                        help='Area string, like: 1_2800_4209_0 for Beijing', default='1_2800_4209_0')
     parser.add_argument('-g', '--good', 
                         help='Jing Dong good ID', default='')
     parser.add_argument('-c', '--count', type=int, 
@@ -789,14 +789,15 @@ if __name__ == '__main__':
     # example goods
     hw_watch = '2567304'
     iphone_7 = '3133851'
-    
+    wkc = '4993751'  # orange:4993751  black:4993737 blue:4993773
+
     options = parser.parse_args()
     print options
   
     # for test
     if options.good == '':
-        options.good = iphone_7
-    
+        options.good = wkc
+
     '''
     if options.password == '' or options.username == '':
         print u'请输入用户名密码'
